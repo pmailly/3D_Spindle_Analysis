@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>CIRB</groupId>
+    <artifactId>Spindle_Analysis_3D</artifactId>
+    <version>master-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>plugins/CIRB/3D_Spindle_Analysis.jar</name>
+    <description>
+        3D MTOCS repartition and spindle measurement 
+    </description>
+    <licenses>
+        <license>
+            <name>GNU General Public License</name>
+            <url>https://gnu.org/licenses/gpl.html</url>
+            <distribution>repo</distribution>
+            <comments>Version 3 of the License or (at your option) any later version.</comments>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+                <id>phm</id>
+                <name>Mailly Philippe</name>
+                <email>philippe.mailly@college-de-france.fr</email>
+                <url></url>
+                <organization>CIRB, Collège de France,CNRS UMR 7142</organization>
+                <roles>
+                        <role>developer</role>
+                </roles>
+                <timezone>-1</timezone>
+        </developer>
+    </developers>
+    <contributors>
+        <contributor>
+            <name>Boudier Thomas</name>
+            <email>thomasb@bii.a-star.edu.sg</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </contributor>
+    </contributors>
+	<scm>
+		<connection>scm:git:git://github.com/imagej/3D_Spindle_Analysis</connection>
+		<developerConnection>scm:git:git@github.com:imagej/3D_Spindle_Analysis</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/pmailly/3D_Spindle_Analysis</url>
+	</scm>
+
+	<properties>
+                <imagej.app.directory>/opt/Fiji.app/</imagej.app.directory>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<main-class>Spindle_Analysis_3D</main-class>
+	</properties>
+
+	<dependencies>
+             <dependency>
+                  <groupId>com.github.mcib3d</groupId>
+                  <artifactId>mcib3d-core</artifactId>
+                  <version>master-3.8.2-ga1209c7-29</version>
+                  <type>jar</type>
+             </dependency>
+	</dependencies>
+        <repositories>
+            <repository>
+		<id>imagej.public</id>
+		<url>http://maven.imagej.net/content/groups/public</url>
+            </repository>
+            <repository>
+                <id>jitpack.io</id>
+                <url>https://jitpack.io</url>
+            </repository>
+        </repositories>
+	<build>
+            <plugins>
+		<plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <showDeprecation>true</showDeprecation>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>copytoplugins</id>
+                            <phase>install</phase>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                            <configuration>
+                                <tasks>
+                                    <copy todir="${imagej.app.directory}/plugins/CIRB" file="target/${project.build.finalName}.jar"/>
+                                </tasks>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+		
+            </plugins>
+	</build>
+
+</project>
+
+</project>
