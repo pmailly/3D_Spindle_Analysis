@@ -56,7 +56,7 @@
              <dependency>
                   <groupId>com.github.mcib3d</groupId>
                   <artifactId>mcib3d-core</artifactId>
-                  <version>master-3.8.2-ga1209c7-29</version>
+                  <version>master-SNAPSHOT</version>
                   <type>jar</type>
              </dependency>
 	</dependencies>
